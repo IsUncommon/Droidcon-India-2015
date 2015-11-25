@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="primary_content_headings">
+        <item>Layouts</item>
+        <item>Views</item>
+        <item>View Groups</item>
+        <item>Palette</item>
+        <item>Styles, Themes and Backward Compatibility</item>
+    </string-array>
+
+    <string-array name="primary_content_description">
+        <item>Huge layouts description</item>
+        <item>Long Views description</item>
+        <item>Huge View Groups description</item>
+        <item>Long Palette Description</item>
+        <item>Long Styles, Themes and Backward Compatibility description</item>
+    </string-array>
+</resources>

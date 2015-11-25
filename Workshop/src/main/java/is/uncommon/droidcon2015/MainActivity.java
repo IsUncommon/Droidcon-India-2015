@@ -5,21 +5,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import is.uncommon.droidcon2015.adapter.PrimarySectionsAdapter;
+import is.uncommon.droidcon2015.models.PrimaryContent;
 
 public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar) Toolbar mToolbar;
     @Bind(R.id.rv_main) RecyclerView mRecyclerView;
-
-    private static final String[] PRIMARY_CONTENTS = { "Layouts", "Views", "View Groups", "Palette", "Styles, Themes and Backward Compatibility" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,38 +29,16 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        mRecyclerView.setAdapter(new PrimarySectionsAdapter());
+        String[] headings = getResources().getStringArray(R.array.primary_content_headings);
+        String[] summaries = getResources().getStringArray(R.array.primary_content_description);
+        List<PrimaryContent> contents = new ArrayList<>();
+        for (int i = 0; i < headings.length; i++) {
+            PrimaryContent content = new PrimaryContent();
+            content.sectionName = headings[i];
+            content.summary = summaries[i];
+            contents.add(content);
+        }
+        mRecyclerView.setAdapter(new PrimarySectionsAdapter(contents));
     }
 
-    private class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySectionsAdapter.ViewHolder> {
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.primarysections_card, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            holder.title.setText(PRIMARY_CONTENTS[position]);
-            holder.imageView.setImageResource(R.drawable.temp_image);
-        }
-
-        @Override
-        public int getItemCount() {
-            return PRIMARY_CONTENTS.length;
-        }
-
-        protected class ViewHolder extends RecyclerView.ViewHolder {
-
-            private ImageView imageView;
-            private TextView title;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                this.imageView = ButterKnife.findById(itemView, R.id.card_image);
-                this.title = ButterKnife.findById(itemView, R.id.card_title);
-            }
-        }
-    }
 }
