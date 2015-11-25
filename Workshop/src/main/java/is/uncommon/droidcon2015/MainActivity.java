@@ -1,52 +1,68 @@
 package is.uncommon.droidcon2015;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
+
+    @Bind(R.id.toolbar) Toolbar mToolbar;
+    @Bind(R.id.rv_main) RecyclerView mRecyclerView;
+
+    private static final String[] PRIMARY_CONTENTS = { "Layouts", "Views", "View Groups", "Palette", "Styles, Themes and Backward Compatibility" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        setSupportActionBar(mToolbar);
+
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setAdapter(new PrimarySectionsAdapter());
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    private class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySectionsAdapter.ViewHolder> {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        @Override
+        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.primarysections_card, parent, false);
+            return new ViewHolder(view);
         }
 
-        return super.onOptionsItemSelected(item);
+        @Override
+        public void onBindViewHolder(ViewHolder holder, int position) {
+            holder.title.setText(PRIMARY_CONTENTS[position]);
+            holder.imageView.setImageResource(R.drawable.temp_image);
+        }
+
+        @Override
+        public int getItemCount() {
+            return PRIMARY_CONTENTS.length;
+        }
+
+        protected class ViewHolder extends RecyclerView.ViewHolder {
+
+            private ImageView imageView;
+            private TextView title;
+
+            public ViewHolder(View itemView) {
+                super(itemView);
+                this.imageView = ButterKnife.findById(itemView, R.id.card_image);
+                this.title = ButterKnife.findById(itemView, R.id.card_title);
+            }
+        }
     }
 }
