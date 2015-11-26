@@ -17,8 +17,10 @@ import is.uncommon.droidcon2015.models.PrimaryContent;
 
 public class MainActivity extends AppCompatActivity implements PrimarySectionsAdapter.ClickInterface {
 
-    @Bind(R.id.toolbar) Toolbar mToolbar;
-    @Bind(R.id.rv_main) RecyclerView mRecyclerView;
+    @Bind(R.id.toolbar)
+    Toolbar mToolbar;
+    @Bind(R.id.rv_main)
+    RecyclerView mRecyclerView;
 
     private static final String TAG = "MainActivity";
 

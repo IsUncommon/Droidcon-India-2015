@@ -9,7 +9,15 @@
     </string-array>
 
     <string-array name="primary_content_description">
-        <item>Huge layouts description</item>
+        <item>This part deals deals with material design recommended layouts to structure the content of application.
+            Contains demo samples for seams, steps, 8dp rythms, elevations, shadows, metrics and region
+\n\n
+&#8226; Explore combining papers with seam \n
+&#8226; Arrange papers in steps \n
+&#8226; Play with elevations and shadows \n
+&#8226; Understand 8dp rhythm in margins and padding in various layouts \n
+&#8226; Recommended metrics \n
+&#8226; Different regions in an app screen \n</item>
         <item>Long Views description</item>
         <item>Huge View Groups description</item>
         <item>Long Palette Description</item>
