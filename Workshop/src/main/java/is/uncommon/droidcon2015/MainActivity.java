@@ -1,11 +1,11 @@
 package is.uncommon.droidcon2015;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +47,6 @@ public class MainActivity extends AppCompatActivity implements PrimarySectionsAd
 
     @Override
     public void onClickCard(int position) {
-        Log.d(TAG, "onClickCard: " + position);
+        startActivity(new Intent(this, SectionDetailActivity.class));
     }
 }
