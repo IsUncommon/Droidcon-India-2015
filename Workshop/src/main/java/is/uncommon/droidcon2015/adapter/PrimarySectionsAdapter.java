@@ -16,9 +16,16 @@ import is.uncommon.droidcon2015.models.PrimaryContent;
 
 public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySectionsAdapter.ViewHolder> {
 
-    private List<PrimaryContent> mContents = null;
+    public interface ClickInterface {
+        void onClickCard(int position);
+    }
 
-    public PrimarySectionsAdapter(List<PrimaryContent> contents) {
+
+    private ClickInterface mClickInterface;
+    private List<PrimaryContent> mContents;
+
+    public PrimarySectionsAdapter(ClickInterface clickInterface, List<PrimaryContent> contents) {
+        this.mClickInterface = clickInterface;
         this.mContents = contents;
     }
 
@@ -47,6 +54,13 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mClickInterface.onClickCard(getLayoutPosition());
+                }
+            });
         }
 
         public void bindData(PrimaryContent primaryContent) {

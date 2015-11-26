@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +15,12 @@ import butterknife.ButterKnife;
 import is.uncommon.droidcon2015.adapter.PrimarySectionsAdapter;
 import is.uncommon.droidcon2015.models.PrimaryContent;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PrimarySectionsAdapter.ClickInterface {
 
     @Bind(R.id.toolbar) Toolbar mToolbar;
     @Bind(R.id.rv_main) RecyclerView mRecyclerView;
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,12 @@ public class MainActivity extends AppCompatActivity {
             content.summary = summaries[i];
             contents.add(content);
         }
-        mRecyclerView.setAdapter(new PrimarySectionsAdapter(contents));
+        mRecyclerView.setAdapter(new PrimarySectionsAdapter(this, contents));
     }
 
+
+    @Override
+    public void onClickCard(int position) {
+        Log.d(TAG, "onClickCard: " + position);
+    }
 }
