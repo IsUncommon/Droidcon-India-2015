@@ -2,8 +2,10 @@ package is.uncommon.droidcon2015.adapter;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import is.uncommon.droidcon2015.R;
 import is.uncommon.droidcon2015.models.PrimaryContent;
+import is.uncommon.droidcon2015.utiils.HtmlUtils;
 
 public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySectionsAdapter.ViewHolder> {
 
@@ -188,7 +191,8 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
 
         public void bindData(PrimaryContent primaryContent) {
             title.setText(primaryContent.sectionName);
-            summary.setText(primaryContent.summary);
+            summary.setText(HtmlUtils.getHtml(primaryContent.summary, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,
+                    itemView.getResources().getDisplayMetrics()), Color.parseColor("#c3c3c3")));
             summary.setMaxLines(MIN_LINES);
             more.setText(R.string.more);
             imageView.setImageResource(R.drawable.temp_image);
