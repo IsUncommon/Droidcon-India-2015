@@ -7,11 +7,12 @@ import android.view.MenuItem;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import is.uncommon.droidcon2015.models.PrimaryContent;
+import is.uncommon.droidcon2015.utils.Extras;
 
 public class SectionDetailActivity extends AppCompatActivity {
 
-    @Bind(R.id.toolbar)
-    Toolbar mToolbar;
+    @Bind(R.id.toolbar) Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,9 @@ public class SectionDetailActivity extends AppCompatActivity {
         setSupportActionBar(mToolbar);
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        PrimaryContent content = getIntent().getParcelableExtra(Extras.CONTENT);
+        getSupportActionBar().setTitle(content.sectionName);
     }
 
     @Override

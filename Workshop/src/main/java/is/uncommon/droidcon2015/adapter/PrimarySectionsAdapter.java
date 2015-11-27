@@ -21,7 +21,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import is.uncommon.droidcon2015.R;
 import is.uncommon.droidcon2015.models.PrimaryContent;
-import is.uncommon.droidcon2015.utiils.HtmlUtils;
+import is.uncommon.droidcon2015.utils.HtmlUtils;
 
 public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySectionsAdapter.ViewHolder> {
 

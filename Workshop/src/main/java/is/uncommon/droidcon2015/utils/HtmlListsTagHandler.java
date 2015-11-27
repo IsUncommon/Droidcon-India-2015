@@ -1,4 +1,4 @@
-package is.uncommon.droidcon2015.utiils;
+package is.uncommon.droidcon2015.utils;
 
 import android.text.Editable;
 import android.text.Html;
