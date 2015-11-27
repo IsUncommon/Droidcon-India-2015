@@ -29,7 +29,7 @@ Contains demo samples for seams, steps, 8dp rythms, elevations, shadows, metrics
 This part explores in depth material components like Buttons, Floating Action Button, Card View and Snackbar. Contains demos that delve into various aspects of these components and available customizations. In the workshop there will be hands on coding developing each of these components.
 </p>
 <p>
-  <b> Button </b> <br>
+  <b> Button </b>
   	<ul>
   		<li>
   			Understand material design sepcification for Button.
@@ -46,7 +46,7 @@ This part explores in depth material components like Buttons, Floating Action Bu
   	</ul>
 </p>
 <p>
-  <b> Floating Action Button </b> <br>
+  <b> Floating Action Button </b>
   	<ul>
   		<li>
   			Explore specification for FAB, understand when and how to use it.
@@ -66,7 +66,7 @@ This part explores in depth material components like Buttons, Floating Action Bu
   	</ul>
 </p>
 <p>
-  <b> Card View </b> <br>
+  <b> Card View </b>
   	<ul>
   		<li>
   			Understand specification for Cards.
@@ -86,7 +86,7 @@ This part explores in depth material components like Buttons, Floating Action Bu
   	</ul>
 </p>
 <p>
-  <b> Snackbar </b> <br>
+  <b> Snackbar </b>
   	<ul>
   		<li>
   			Understand specification for Snackbar.
