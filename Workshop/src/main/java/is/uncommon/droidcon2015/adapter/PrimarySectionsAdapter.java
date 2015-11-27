@@ -95,7 +95,7 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
             final int toLineNum = MIN_LINES;
             final int currLine = summary.getLayout().getLineCount();
             animator.setInterpolator(new AccelerateInterpolator());
-            animator.setDuration(150);
+            animator.setDuration(300);
             animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {

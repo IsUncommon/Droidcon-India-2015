@@ -2,8 +2,8 @@
 <resources>
     <string-array name="primary_content_headings">
         <item>Layouts</item>
-        <item>Views</item>
-        <item>View Groups</item>
+        <item>View Components - 1</item>
+        <item>View Components - 2</item>
         <item>Palette</item>
         <item>Styles, Themes and Backward Compatibility</item>
     </string-array>
@@ -11,19 +11,96 @@
     <string-array name="primary_content_description">
         <item><![CDATA[
 <p>
-This part deals deals with material design recommended layouts to structure the content of application.
+This part deals with material design recommended layouts to structure the content of application.
 Contains demo samples for seams, steps, 8dp rythms, elevations, shadows, metrics and region
 </p>
 <ul>
-<li> Explore and Understand combining papers with seam </li> <br>
-<li> Arrange papers in steps </li> <br>
-<li> Play with elevations and shadows </li> <br>
-<li> Understand 8dp rhythm in margins and padding in various layouts </li> <br>
-<li> Recommended metrics </li> <br>
-<li> Explore different regions in an app screen </li> <br>
+<li> Create layouts by combining papers that are attached to each other (seams)</li>
+<li> Arrange papers in steps (elevations) </li>
+<li> Play with elevations and shadows </li>
+<li> Understand 8dp rhythm in various layouts </li>
+<li> Get to know recommended metrics </li>
+<li> Explore different regions in an app screen </li>
 </ul>
 ]]></item>
-        <item>Long Views description</item>
+        <item>
+            <![CDATA[
+<p>
+This part explores in depth material components like Buttons, Floating Action Button, Card View and Snackbar. Contains demos that delve into various aspects of these components and available customizations. In the workshop there will be hands on coding developing each of these components.
+</p>
+<p>
+  <b> Button </b> <br>
+  	<ul>
+  		<li>
+  			Understand material design sepcification for Button.
+  		</li>
+  		<li>
+  			Explore different states of Button. Raised buttons, floating buttons and flat buttons.
+  		</li>
+  		<li>
+  			Explore different customizations available for buttons.
+  		</li>
+  		<li>
+  			Backward compatibility with AppCompat library.
+  		</li>
+  	</ul>
+</p>
+<p>
+  <b> Floating Action Button </b> <br>
+  	<ul>
+  		<li>
+  			Explore specification for FAB, understand when and how to use it.
+  		</li>
+  		<li>
+  			Explore placement, appearance and disapperance of FAB.
+  		</li>
+  		<li>
+  			Explore various FAB transitions like speed Dial transition, tabbed layout transition, toolbar transition and custom transitions.
+  		</li>
+  		<li>
+  			Explore FABs that can be morphed into another view.
+  		</li>
+  		<li>
+  			Compat library support.
+  		</li>
+  	</ul>
+</p>
+<p>
+  <b> Card View </b> <br>
+  	<ul>
+  		<li>
+  			Understand specification for Cards.
+  		</li>
+  		<li>
+  			Cards in list view, recycler view and view groups.
+  		</li>
+  		<li>
+  			Play with elevation, rounding and content padding in cards.
+  		</li>
+  		<li>
+  			Explore various actions on cards.
+  		</li>
+  		<li>
+  			Compat library support.
+  		</li>
+  	</ul>
+</p>
+<p>
+  <b> Snackbar </b> <br>
+  	<ul>
+  		<li>
+  			Understand specification for Snackbar.
+  		</li>
+  		<li>
+  			Snackbar appearance and disappearance.
+  		</li>
+  		<li>
+  			Snackbar with and without action.
+  		</li>
+  	</ul>
+</p>
+]]>
+</item>
         <item>Huge View Groups description</item>
         <item>Long Palette Description</item>
         <item>Long Styles, Themes and Backward Compatibility description</item>
