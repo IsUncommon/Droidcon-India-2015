@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -13,6 +14,7 @@ import is.uncommon.droidcon2015.utils.Extras;
 public class SectionDetailActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar) Toolbar mToolbar;
+    @Bind(R.id.iv_header_image) ImageView mHeaderImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,7 @@ public class SectionDetailActivity extends AppCompatActivity {
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        mHeaderImageView.setImageResource(getIntent().getIntExtra(Extras.HEADER_IMAGE, 0));
         PrimaryContent content = getIntent().getParcelableExtra(Extras.CONTENT);
         getSupportActionBar().setTitle(content.sectionName);
     }
@@ -38,5 +41,11 @@ public class SectionDetailActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        supportFinishAfterTransition();
+        super.onBackPressed();
     }
 }

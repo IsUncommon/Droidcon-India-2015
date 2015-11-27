@@ -2,10 +2,13 @@ package is.uncommon.droidcon2015;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,9 +50,16 @@ public class MainActivity extends AppCompatActivity implements PrimarySectionsAd
     }
 
     @Override
-    public void onClickCard(int position) {
+    public void onClickCard(int position, ImageView imageView) {
         Intent intent = new Intent(this, SectionDetailActivity.class);
         intent.putExtra(Extras.CONTENT, mPrimaryContents.get(position));
-        startActivity(intent);
+        if (position % 2 == 0) {
+            intent.putExtra(Extras.HEADER_IMAGE, R.drawable.temp_image);
+        } else {
+            intent.putExtra(Extras.HEADER_IMAGE, R.drawable.temp_image_car);
+        }
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, imageView, "header_image");
+        ActivityCompat.startActivity(this, intent, options.toBundle());
     }
 }

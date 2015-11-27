@@ -23,12 +23,13 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
+                android:id="@+id/iv_header_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@null"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/temp_image"
+                android:transitionName="header_image"
                 app:layout_collapseMode="parallax" />
 
             <android.support.v7.widget.Toolbar

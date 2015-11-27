@@ -1,17 +1,11 @@
 package is.uncommon.droidcon2015.adapter;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,7 +20,7 @@ import is.uncommon.droidcon2015.utils.HtmlUtils;
 public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySectionsAdapter.ViewHolder> {
 
     public interface ClickInterface {
-        void onClickCard(int position);
+        void onClickCard(int position, ImageView imageView);
     }
 
 
@@ -55,13 +49,10 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
     }
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
-        @Bind(R.id.card_image)
-        ImageView imageView;
-        @Bind(R.id.card_title)
-        TextView title;
-        @Bind(R.id.card_summary)
-        TextView summary;
 
+        @Bind(R.id.card_image) ImageView imageView;
+        @Bind(R.id.card_title) TextView title;
+        @Bind(R.id.card_summary) TextView summary;
 
         public ViewHolder(final View itemView) {
             super(itemView);
@@ -69,13 +60,18 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mClickInterface.onClickCard(getLayoutPosition());
+                    mClickInterface.onClickCard(getLayoutPosition(), imageView);
                 }
             });
         }
 
         public void bindData(PrimaryContent primaryContent) {
             title.setText(primaryContent.sectionName);
+            if (getLayoutPosition() % 2 == 0) {
+                imageView.setImageResource(R.drawable.temp_image);
+            } else {
+                imageView.setImageResource(R.drawable.temp_image_car);
+            }
             summary.setText(HtmlUtils.getHtml(primaryContent.summary, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,
                     itemView.getResources().getDisplayMetrics()), Color.parseColor("#c3c3c3")));
         }
