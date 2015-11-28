@@ -1,9 +1,12 @@
 package is.uncommon.droidcon2015.utils;
 
+import android.graphics.Color;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.SpannedString;
 import android.text.TextUtils;
+import android.util.TypedValue;
+import android.widget.TextView;
 
 /**
  * A util class that provides spanned and trimmed html text from html content
@@ -74,5 +77,10 @@ public final class HtmlUtils {
      */
     public static Spanned getHtml(String text, int bulletRadius, int bulletColor) {
         return trimWhitespace(Html.fromHtml(text, null, new HtmlListsTagHandler(bulletRadius, bulletColor)));
+    }
+
+    public static void setHtmlText(TextView tv, String plainHtml) {
+        tv.setText(HtmlUtils.getHtml(plainHtml, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,
+                tv.getResources().getDisplayMetrics()), Color.parseColor("#c3c3c3")));
     }
 }
