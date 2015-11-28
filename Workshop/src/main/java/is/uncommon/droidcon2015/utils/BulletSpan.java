@@ -81,9 +81,9 @@ public class BulletSpan implements LeadingMarginSpan, ParcelableSpan {
     }
 
     public void drawLeadingMargin(Canvas c, Paint p, int x, int dir,
-                                  int top, int baseline, int bottom,
-                                  CharSequence text, int start, int end,
-                                  boolean first, Layout l) {
+            int top, int baseline, int bottom,
+            CharSequence text, int start, int end,
+            boolean first, Layout l) {
         if (((Spanned) text).getSpanStart(this) == start) {
             Paint.Style style = p.getStyle();
             int oldcolor = 0;

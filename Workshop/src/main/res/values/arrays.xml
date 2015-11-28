@@ -101,8 +101,86 @@ This part explores in depth material components like Buttons, Floating Action Bu
 </p>
 ]]>
 </item>
-        <item>Huge View Groups description</item>
-        <item>Long Palette Description</item>
-        <item>Long Styles, Themes and Backward Compatibility description</item>
+        <item>
+<![CDATA[
+<p>
+This part explores in depth material components like AppBar, Toolbar, Collapsible Toolbar, Coordinator Layout, Navigation View, Floating Labels.
+Contains demos that delve into various aspects of these components and available customizations. In the workshop there will be hands on coding developing each of these components.
+</p>
+<p>
+  <b> App bar </b>
+  	<ul>
+  		<li>
+  			Understand material design sepcification for App bar.
+  		</li>
+  		<li>
+  			Explore different customizations available for App bar.
+  		</li>
+  	</ul>
+</p>
+<p>
+  <b> Toolbar </b>
+  	<ul>
+  		<li>
+  			Understand toolbar widget and its setup via menu xml.
+  		</li>
+  		<li>
+  			Explore different customizations available for Toolbar.
+  		</li>
+  		<li>
+  			Play with placements of toolbar at various places in the screen layout.
+  		</li>
+  	</ul>
+</p>
+<p>
+  <b> Collapsible Toolbar </b>
+  	<ul>
+  		<li>
+  			Understand Collapsible Toolbar widget and its setup via menu xml.
+  		</li>
+  		<li>
+  			Explore different collapsing options available for Collapsible Toolbar.
+  		</li>
+  	</ul>
+</p>
+
+<p>
+  <b> Coordinator Layout</b>
+  	<ul>
+  		<li>
+  			Understand Coordinator Layout concepts.
+  		</li>
+  		<li>
+  			Explore and write new implementation for coordinator behaviour.
+  		</li>
+  	</ul>
+</p>
+
+<p>
+  <b> Navigation View</b>
+  	<ul>
+  		<li>
+  			Understand using navigation view to build menu drawers.
+  		</li>
+  		<li>
+  			Use xmls to inflate content into menu.
+  		</li>
+  	</ul>
+</p>
+]]></item>
+        <item><![CDATA[
+<p>
+A detailed exploration of Palette library is covered with hands on coding.
+</p>
+<ul>
+<li> Build palette from a bitmap and extract colors.</li>
+<li> Tint appbar, status bar and other views with extracted color palette. </li>
+</ul>
+]]></item>
+        <item><![CDATA[
+<p>
+In this part we will be exploring how to apply styling and customize all the widgets discussed in previous sections for maximum backward compatibility
+</p>
+]]></item>
     </string-array>
 </resources>
