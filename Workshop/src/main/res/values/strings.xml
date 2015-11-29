@@ -4,13 +4,31 @@
     <string name="more">Show More</string>
     <string name="less">Show Less</string>
     <string name="seams_title">Seams</string>
+    <string name="steps_title">Steps</string>
     <string name="seams_demo_description">
         <![CDATA[
         <ul>
         <li>Two sheets of paper that share an entire common edge are called seams.</li>
-        <li>Here in this demo, there are two sheets of paper.</li>
-        <li>Both are at same elevation and are one below another, sharing a common edge. <li>
-        <li>Sheets of paper joined together by a seam move together. In this case both sheets scroll together </li>
+        <li>Here in this demo, there are two sheets of paper.Both are at same elevation and are one below another, sharing a common edge. <li>
+        <li>Sheets of paper joined together by a seam move together. In this case both sheets scroll together. </li>
+        </ul>
+         ]]></string>
+    <string name="seam_fab_description">A floating action button can straddle a seam</string>
+    <string name="steps_demo_description_top_sheet">
+        <![CDATA[
+        <ul>
+        <li>Two overlapping sheets of paper with different depths form a step.</li>
+        <li>Here in this demo, there are two sheets of paper. Both are at different elevations. The white sheet has an elevation greater than the gray sheet and you can notice the shadow cast by white paper.<li>
+        <li>Overlapping sheets of paper can move independently of each other.</li>
+        </ul>
+         ]]></string>
+    <string name="steps_demo_description_bottom_sheet">
+        <![CDATA[
+        <ul>
+        <li>A floating action button can straddle a step like the FAB beside.</li>
+        <li>Here in this demo, the top sheet can be swiped right.<li>
+        <li>You will notice that the bottom sheet moves up responding to swipe of the top sheet giving an effect a sheet sliding below the top.</li>
+        <li>You can bring back top sheet by clicking on the FAB.<li>
         </ul>
          ]]></string>
 </resources>

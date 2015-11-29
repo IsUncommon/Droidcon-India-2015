@@ -28,6 +28,9 @@
         <activity
             android:name=".SeamDemoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".steps.StepsDemoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
