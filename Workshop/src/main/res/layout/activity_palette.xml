@@ -29,9 +29,33 @@
             <android.support.v4.view.ViewPager
                 android:id="@+id/vp_palette"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
+                android:layout_height="200dp"
                 android:layout_marginBottom="@dimen/view_margin"
                 android:layout_marginTop="@dimen/view_margin" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/view_margin"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_vibrant"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Vibrant colors" />
+
+                <Button
+                    android:id="@+id/btn_muted"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#7f2040"
+                    android:text="Muted colors" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_palette_head"
@@ -66,7 +90,7 @@
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="200dp"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="@dimen/activity_horizontal_margin"
