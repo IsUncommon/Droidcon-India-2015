@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
@@ -36,6 +39,7 @@ public class ButtonsDemoActivity extends AppCompatActivity implements TintRowVie
     @Bind(R.id.toolbar) Toolbar mToolbar;
     @Bind(R.id.demo_button_flat) AppCompatButton mDemoFlatButton;
     @Bind(R.id.flat_button_desc) TextView mFlatButtonDescription;
+    @Bind(R.id.scroll_view) NestedScrollView mNestedScrollView;
     private int mCurrentTintColor = -1;
 
     @Override
@@ -45,6 +49,7 @@ public class ButtonsDemoActivity extends AppCompatActivity implements TintRowVie
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setTitle(R.string.demo_buttons);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         HtmlUtils.setHtmlText(mRaisedButtonDesc, getString(R.string.raised_button_description));
         HtmlUtils.setHtmlText(mFabButtonDesc, getString(R.string.fab_description));
         HtmlUtils.setHtmlText(mFlatButtonDescription, getString(R.string.borderless_button_description));
@@ -114,5 +119,14 @@ public class ButtonsDemoActivity extends AppCompatActivity implements TintRowVie
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(color);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (android.R.id.home == item.getItemId()) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
