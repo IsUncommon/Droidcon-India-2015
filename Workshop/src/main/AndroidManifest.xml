@@ -37,6 +37,10 @@
         <activity
             android:name=".PaletteActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".fab.FabControlsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
