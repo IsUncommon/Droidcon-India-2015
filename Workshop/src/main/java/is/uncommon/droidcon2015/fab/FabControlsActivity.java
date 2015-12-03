@@ -1,13 +1,21 @@
 package is.uncommon.droidcon2015.fab;
 
+import android.animation.ValueAnimator;
 import android.content.res.ColorStateList;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.BounceInterpolator;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import butterknife.Bind;
@@ -25,8 +33,7 @@ public class FabControlsActivity extends AppCompatActivity {
     @Bind(R.id.tint_row_fab_ripple) LinearLayout mTintLayoutRipple;
     @Bind(R.id.fab_mini) FloatingActionButton mFabMini;
     @Bind(R.id.fab_normal) FloatingActionButton mFabNormal;
-    @Bind(R.id.fab_mini_show_checkbox) CheckBox mFabMiniCheckbox;
-    @Bind(R.id.fab_normal_show_checkbox) CheckBox mFabNormalCheckbox;
+    @Bind(R.id.fab_mini_normal_switch) SwitchCompat mFabMiniCheckbox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,23 +69,47 @@ public class FabControlsActivity extends AppCompatActivity {
         mFabNormal.setRippleColor(holder.getSelectedColor());
         mFabMiniCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                mFabMiniCheckbox.setText(checked? "Normal" : "Mini");
                 if (mFabMini.isShown()) {
                     mFabMini.hide();
+                    animateFab(mFabNormal);
                 } else {
-                    mFabMini.show();
+                    mFabNormal.hide();
+                    animateFab(mFabMini);
                 }
             }
         });
+        mFabMini.hide();
+        mFabMiniCheckbox.setText("Normal");
+    }
 
-        mFabNormalCheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+    private void animateFab(final FloatingActionButton fab) {
+        final Matrix imageMatrix = new Matrix();
+        fab.setScaleType(ImageView.ScaleType.MATRIX);
+        imageMatrix.setScale(0, 0);
+        fab.setImageMatrix(imageMatrix);
+        fab.show(new FloatingActionButton.OnVisibilityChangedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (mFabNormal.isShown()) {
-                    mFabNormal.hide();
-                } else {
-                    mFabNormal.show();
-                }
+            public void onShown(final FloatingActionButton fab) {
+                final Matrix imageMatrix = new Matrix();
+                final int fabWidth = fab.getDrawable().getIntrinsicWidth();
+                final int fabHeight = fab.getDrawable().getIntrinsicHeight();
+                fab.setScaleType(ImageView.ScaleType.MATRIX);
+                imageMatrix.setScale(0, 0);
+                fab.setImageMatrix(imageMatrix);
+                ValueAnimator animator = ValueAnimator.ofFloat(0, 1);
+                animator.setInterpolator(new AccelerateDecelerateInterpolator());
+                animator.setDuration(150);
+                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        float scale = (float) valueAnimator.getAnimatedValue();
+                        imageMatrix.setScale(scale, scale, fabWidth / 2, fabHeight / 2);
+                        fab.setImageMatrix(imageMatrix);
+                    }
+                });
+                animator.start();
             }
         });
     }
