@@ -31,4 +31,31 @@
         <li>You can bring back top sheet by clicking on the FAB.<li>
         </ul>
          ]]></string>
+    <string name="demo_buttons">Buttons Demo</string>
+    <string name="title_floating">Floating Action Button</string>
+    <string name="title_raised_button">Raised Button</string>
+    <string name="title_borderless_button">Flat Button</string>
+    <string name="borderless_button_description">
+        <![CDATA[
+        <ul>
+        <li>A rectangular material button that has no elevation and displays ripple reaction on press.</li>
+        <li>Use them in elevated layouts to avoid excessive layering.<li>
+        </ul>
+         ]]></string>
+    <string name="raised_button_description">
+        <![CDATA[
+        <ul>
+        <li>A rectangular material button that has an elevation and displays ripple reaction on press.</li>
+        <li>Use them in flat layouts to emphasize actions.<li>
+        <li>Easy background tinting support.<li>
+        </ul>
+         ]]></string>
+    <string name="fab_description">
+        <![CDATA[
+        <ul>
+        <li>A circular material button that has an elevation and displays ripple reaction on press.</li>
+        <li>Its the most important and ubiquitous action on the screen.<li>
+        <li>Easy background tinting support.<li>
+        </ul>
+         ]]></string>
 </resources>

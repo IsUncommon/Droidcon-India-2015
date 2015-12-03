@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tint_row_card"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:padding="8dp"
+    app:cardBackgroundColor="#f00"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="24dp"
+    android:layout_margin="4dp"
+    android:foreground="?attr/selectableItemBackgroundBorderless">
+
+
+    <ImageView
+        android:id="@+id/tint_row_check"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_done_white_24dp"/>
+</android.support.v7.widget.CardView>
