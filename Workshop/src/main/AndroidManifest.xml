@@ -41,6 +41,10 @@
         <activity
             android:name=".fab.FabControlsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".fab.FabTabsBehaviorActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
