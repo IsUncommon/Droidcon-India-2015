@@ -49,6 +49,10 @@
         <activity
             android:name=".fab.FabToolbarTransitionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".fab.FabSpeedDialTransitionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
