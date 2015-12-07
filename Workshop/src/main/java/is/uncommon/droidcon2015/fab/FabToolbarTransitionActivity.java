@@ -15,7 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -34,11 +36,14 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
     @Bind(R.id.scroll_view) NestedScrollView mScrollView;
     @Bind(R.id.toolbar_bottom) Toolbar mBottomToolbar;
     @Bind(R.id.demo_button) Button mToggle;
+    @Bind(R.id.toolbar_items_1) ImageView mToolbarLeftMostItem;
+    @Bind(R.id.toolbar_items_2) ImageView mToolbarLeftItem;
+    @Bind(R.id.toolbar_items_3) ImageView mToolbarRightItem;
+    @Bind(R.id.toolbar_items_4) ImageView mToolbarRightMostItem;
 
-    private boolean mHasFabTransitioned = false;
+    private boolean mHasFabTransitioned = true;
     private int mActionBarHeight;
     private boolean mIsAnimating = false;
-    private float mPrevToggledOffset = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +52,6 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        mBottomToolbar.inflateMenu(R.menu.fab_transition_toolbar_menu);
         TypedValue tv = new TypedValue();
         if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
             mActionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
@@ -68,15 +72,15 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 int scrolledYOffset = v.getScrollY();
-                if (!mHasFabTransitioned && scrolledYOffset > mActionBarHeight && (scrollY - oldScrollY) > 0 && !mIsAnimating) {
+                if (mHasFabTransitioned && scrolledYOffset > mActionBarHeight && (scrollY - oldScrollY) > 0 && !mIsAnimating) {
                     toggleFabAnimation();
-                } else if (mHasFabTransitioned && scrolledYOffset <= mActionBarHeight && !mIsAnimating) {
+                } else if (!mHasFabTransitioned && scrolledYOffset <= mActionBarHeight && !mIsAnimating) {
                     toggleFabAnimation();
                 }
             }
         });
-        mBottomToolbar.setScaleX(0);
-        mBottomToolbar.setScaleY(0);
+        mFab.setScaleX(0);
+        mFab.setScaleY(0);
     }
 
     private void toggleFabAnimation() {
@@ -171,7 +175,7 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
                 }
             });
         } else {
-            ValueAnimator animtr = ValueAnimator.ofFloat(0, 1);
+            ValueAnimator animtr = ValueAnimator.ofFloat(mHasFabTransitioned ? 1 : 0, mHasFabTransitioned ? 0 : 1);
             animtr.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -180,13 +184,106 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
                     mBottomToolbar.setScaleY(scale);
                 }
             });
+            animtr.addListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animator) {
+                    if (mHasFabTransitioned) {
+                        mBottomToolbar.setScaleX(1f);
+                        mBottomToolbar.setScaleY(1f);
+                    } else {
+                        mBottomToolbar.setScaleX(0f);
+                        mBottomToolbar.setScaleY(0f);
+                    }
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animator) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animator) {
+
+                }
+            });
             animtr.setDuration(300);
             revealAnimator = animtr;
         }
+        //toolbar items fade
+        ValueAnimator fader = ValueAnimator.ofFloat(mHasFabTransitioned ? 1 : 0, mHasFabTransitioned ? 0 : 1);
+        fader.setInterpolator(new AccelerateDecelerateInterpolator());
+        fader.setDuration(300);
+        fader.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                float val = (float) valueAnimator.getAnimatedValue();
+                float value = 1 - val;
+                float alpha = Math.max(val, 0.2f);
+                mToolbarLeftMostItem.setTranslationX(value * 1.5f * mToolbarLeftMostItem.getWidth());
+                mToolbarLeftItem.setTranslationX(value * 0.5f * mToolbarLeftMostItem.getWidth());
+                mToolbarRightItem.setTranslationX(value * -0.5f * mToolbarLeftMostItem.getWidth());
+                mToolbarRightMostItem.setTranslationX(value * -1.5f * mToolbarLeftMostItem.getWidth());
+                mToolbarLeftMostItem.setAlpha(alpha);
+                mToolbarLeftItem.setAlpha(alpha);
+                mToolbarRightItem.setAlpha(alpha);
+                mToolbarRightMostItem.setAlpha(alpha);
+            }
+        });
+
+        fader.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+                if (!mHasFabTransitioned) {
+                    mToolbarLeftMostItem.setTranslationX(1.5f * mToolbarLeftMostItem.getWidth());
+                    mToolbarLeftItem.setTranslationX(0.5f * mToolbarLeftMostItem.getWidth());
+                    mToolbarRightItem.setTranslationX(-0.5f * mToolbarLeftMostItem.getWidth());
+                    mToolbarRightMostItem.setTranslationX(-1.5f * mToolbarLeftMostItem.getWidth());
+                    float alpha = 0.2f;
+                    mToolbarLeftItem.setAlpha(alpha);
+                    mToolbarLeftMostItem.setAlpha(alpha);
+                    mToolbarRightItem.setAlpha(alpha);
+                    mToolbarRightMostItem.setAlpha(alpha);
+                } else {
+                    mToolbarLeftMostItem.setTranslationX(0);
+                    mToolbarLeftItem.setTranslationX(0);
+                    mToolbarRightItem.setTranslationX(0);
+                    mToolbarRightMostItem.setTranslationX(0);
+                    float alpha = 1f;
+                    mToolbarLeftItem.setAlpha(alpha);
+                    mToolbarLeftMostItem.setAlpha(alpha);
+                    mToolbarRightItem.setAlpha(alpha);
+                    mToolbarRightMostItem.setAlpha(alpha);
+                }
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        });
+
+        AnimatorSet revealWithFade = new AnimatorSet();
+        revealWithFade.play(revealAnimator).with(fader);
+
         if (!mHasFabTransitioned) {
-            animatorSet.play(translation).before(revealAnimator);
+            animatorSet.play(translation).before(revealWithFade);
         } else {
-            animatorSet.play(revealAnimator).before(translation);
+            animatorSet.play(revealWithFade).before(translation);
         }
 
         animatorSet.addListener(new Animator.AnimatorListener() {

@@ -74,7 +74,42 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:background="@color/colorAccent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" >
+
+        <LinearLayout
+            android:id="@+id/toolbar_items_panel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/toolbar_items_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:src="@drawable/ic_create_white_24dp"/>
+
+            <ImageView
+                android:id="@+id/toolbar_items_2"
+                android:layout_weight="0.25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_replay_white_24dp"/>
+
+            <ImageView
+                android:id="@+id/toolbar_items_3"
+                android:layout_weight="0.25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add_shopping_cart_white_24dp"/>
+
+            <ImageView
+                android:id="@+id/toolbar_items_4"
+                android:layout_weight="0.25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_done_white_24dp"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
