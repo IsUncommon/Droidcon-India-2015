@@ -47,6 +47,7 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mBottomToolbar.inflateMenu(R.menu.fab_transition_toolbar_menu);
         TypedValue tv = new TypedValue();
         if (getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true)) {
             mActionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data, getResources().getDisplayMetrics());
@@ -67,6 +68,11 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                 int scrolledYOffset = v.getScrollY();
+                if (!mHasFabTransitioned && scrolledYOffset > mActionBarHeight && (scrollY - oldScrollY) > 0 && !mIsAnimating) {
+                    toggleFabAnimation();
+                } else if (mHasFabTransitioned && scrolledYOffset <= mActionBarHeight && !mIsAnimating) {
+                    toggleFabAnimation();
+                }
             }
         });
         mBottomToolbar.setScaleX(0);
@@ -95,6 +101,7 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
                 float transY = (float) MathUtils.quadBezierValue(startY, controlPointY, endY, value);
                 mFab.setTranslationX(transX);
                 mFab.setTranslationY(transY);
+                mFab.setAlpha(mHasFabTransitioned ? Math.max(value, 0.2f) : Math.max((1 - value), 0.2f));
             }
         });
         translation.addListener(new Animator.AnimatorListener() {
@@ -103,6 +110,8 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
                 if (mHasFabTransitioned) {
                     mFab.setScaleY(1);
                     mFab.setScaleX(1);
+                    mFab.setAlpha(1f);
+                    mIsAnimating = true;
                 }
             }
 
@@ -126,19 +135,20 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
 
             }
         });
-        translation.setDuration(150);
+        translation.setDuration(300);
         //reveal animation
         Animator revealAnimator = null;
         AnimatorSet animatorSet = new AnimatorSet();
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             revealAnimator = ViewAnimationUtils.createCircularReveal(mBottomToolbar, mBottomToolbar.getWidth() / 2, mBottomToolbar.getHeight() / 2, mHasFabTransitioned ? mBottomToolbar.getWidth() : 0, mHasFabTransitioned ? 0 : mBottomToolbar.getWidth());
-            revealAnimator.setDuration(150);
+            revealAnimator.setDuration(300);
             revealAnimator.addListener(new Animator.AnimatorListener() {
                 @Override
                 public void onAnimationStart(Animator animator) {
                     mBottomToolbar.setScaleX(1);
                     mBottomToolbar.setScaleY(1);
+                    mIsAnimating = true;
                 }
 
                 @Override
@@ -188,6 +198,7 @@ public class FabToolbarTransitionActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animator) {
                 mHasFabTransitioned = !mHasFabTransitioned;
+                mIsAnimating = false;
             }
 
             @Override
