@@ -57,6 +57,10 @@
         <activity
             android:name=".SnackbarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".CardActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

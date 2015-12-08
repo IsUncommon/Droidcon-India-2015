@@ -62,4 +62,5 @@
     <string name="title_fab_controls">Fab Controls</string>
     <string name="make_a_snack">Type in something and make a snack!</string>
     <string name="with_action">With action</string>
+    <string name="a_button">This is a button in a card.</string>
 </resources>
