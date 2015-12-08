@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -65,10 +66,17 @@ public class SnackbarActivity extends AppCompatActivity {
         mSnackbar.setAction("nope.", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSnackbar.dismiss();
+                showAlertDialog();
             }
         });
         mSnackbar.show();
+    }
+
+    private void showAlertDialog() {
+        new AlertDialog.Builder(this)
+                .setMessage("Some message?")
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
     }
 
 }
