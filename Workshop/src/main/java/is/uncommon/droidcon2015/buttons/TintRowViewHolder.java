@@ -11,9 +11,6 @@ import java.util.List;
 
 import is.uncommon.droidcon2015.R;
 
-/**
- * Created by Madhu on 03/12/15.
- */
 public class TintRowViewHolder implements View.OnClickListener {
     private static final int[] COLORS = new int[] {
             Color.parseColor("#9C27B0"),
@@ -81,7 +78,7 @@ public class TintRowViewHolder implements View.OnClickListener {
         }
     }
 
-    public static interface TintRowSelectedListener {
-        public void onTintSelected(int color);
+    public interface TintRowSelectedListener {
+        void onTintSelected(int color);
     }
 }
