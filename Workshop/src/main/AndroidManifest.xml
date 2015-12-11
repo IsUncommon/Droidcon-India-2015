@@ -65,6 +65,11 @@
         <activity
             android:name=".coord.CLAnchorsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".coord.CLExistingBehaviorActivity"
+            android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
+
     </application>
 
 </manifest>

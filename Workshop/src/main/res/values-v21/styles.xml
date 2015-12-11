@@ -7,4 +7,8 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
+
+    <style name="AppTheme.CLExistingBehaviorActivity" parent="AppTheme.NoActionBar">
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+    </style>
 </resources>

@@ -72,4 +72,15 @@
         <li>Click on any of the + button to anchor the FAB.<li>
         </ul>
          ]]></string>
+
+    <string name="cl_existing_behavior_description"><![CDATA[
+        <ul>
+        <li>AppBarLayout has a default behavior to interpret nested scroll and respond to it. When a nested scroll or fling happens it will update layout its children based on the scroll flags.</li>
+        <li>In this demo when you scroll, the toolbar scrolls and snaps. When you scroll down it follows a quick return pattern.<li>
+        <li>AppBarLayout also provides a behavior class to position views below it. NestedScrollView has that behavior.<li>
+        <li>AppBarLayouts default behavior interprets nested scroll event passed to it via parent coordinator layout. Depending on the scroll and fling amount, it will offset the layout position of AppBarLayout.<li>
+        <li>ScrollingViewBehavior of the appbar layout then responds to layout changes of appbar and repositions itself to the bottom of newly laid out appbar.<li>
+        <li>FloatingActionButton has a default behavior to respond to AppBarLayout changes and Snackbar.<li>
+        </ul>
+         ]]></string>
 </resources>
