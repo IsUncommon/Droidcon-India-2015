@@ -61,6 +61,10 @@
         <activity
             android:name=".CardActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".coord.CLAnchorsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

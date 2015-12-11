@@ -63,4 +63,13 @@
     <string name="make_a_snack">Type in something and make a snack!</string>
     <string name="with_action">With action</string>
     <string name="a_button">This is a button in a card.</string>
+    <string name="cl_anchors_description"><![CDATA[
+        <ul>
+        <li>You can anchor views to another view which is a child of coordinator view.</li>
+        <li>An anchored child may not contain another anchor child.<li>
+        <li>Usually used to position floating content.<li>
+        <li>An anchored view gets pinned. When a nested scrolling container is scrolled, anchored view maintains its gravity.<li>
+        <li>Click on any of the + button to anchor the FAB.<li>
+        </ul>
+         ]]></string>
 </resources>
