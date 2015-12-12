@@ -83,4 +83,11 @@
         <li>FloatingActionButton has a default behavior to respond to AppBarLayout changes and Snackbar.<li>
         </ul>
          ]]></string>
+
+    <string name="cl_swipe_dismiss_behavior"><![CDATA[
+        <ul>
+        <li>SwipeDismissBehavior can be added to any direct descendants of Coordinator Layout.</li>
+        <li>Use the buttons below to add and remove swipe behaviors.<li>
+        </ul>
+         ]]></string>
 </resources>

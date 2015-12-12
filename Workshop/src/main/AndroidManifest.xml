@@ -70,6 +70,9 @@
             android:name=".coord.CLExistingBehaviorActivity"
             android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
 
+        <activity
+            android:name=".coord.CLSwipeDismissBehaviorActivity"
+            android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
     </application>
 
 </manifest>
