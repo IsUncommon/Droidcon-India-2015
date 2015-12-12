@@ -89,4 +89,13 @@
         SwipeDismissBehavior can be added to any direct descendants of Coordinator Layout.</li>
         </p>
          ]]></string>
+
+     <string name="toolbar_demo_description"><![CDATA[
+        <ul>
+        <li>A toolbar widget is used for grouping actions on the screen.</li>
+        <li>A toolbar widget can be set as support action in appcompat activity.</li>
+        <li>There can be multiple toolbar widgets in view group.</li>
+        <li>A toolbar widget can inflate from a menu resource.</li>
+        </ul>
+         ]]></string>
 </resources>

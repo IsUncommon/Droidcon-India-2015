@@ -1,0 +1,50 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".toolbar.ToolbarDemoActivity">
+    <item
+        android:id="@+id/action_create"
+        android:icon="@drawable/ic_create_white_24dp"
+        android:orderInCategory="100"
+        android:title="Create"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_shopping"
+        android:icon="@drawable/ic_add_shopping_cart_white_24dp"
+        android:orderInCategory="102"
+        android:title="Shopping"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_replay"
+        android:icon="@drawable/ic_replay_white_24dp"
+        android:orderInCategory="103"
+        android:title="Replay"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_done"
+        android:icon="@drawable/ic_done_white_24dp"
+        android:orderInCategory="101"
+        android:title="Done"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_more_1"
+        android:orderInCategory="104"
+        android:title="More 1"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_more_2"
+        android:orderInCategory="105"
+        android:title="More 2"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_more_3"
+        android:orderInCategory="106"
+        android:title="More 3"
+        app:showAsAction="never" />
+</menu>
