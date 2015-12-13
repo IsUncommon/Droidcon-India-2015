@@ -77,6 +77,10 @@
         <activity
             android:name=".toolbar.ToolbarDemoActivity"
             android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
+
+        <activity
+            android:name=".toolbar.AppbarDemoActivity"
+            android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
     </application>
 
 </manifest>

@@ -98,4 +98,11 @@
         <li>A toolbar widget can inflate from a menu resource.</li>
         </ul>
          ]]></string>
+
+    <string name="appbar_demo_description"><![CDATA[
+        <ul>
+        <li>AppbarLayout is vertical LinearLayout that implements material design appbar specification. Most of the scrolling behavior is handled in this widget.</li>
+        <li>Tightly coupled with coordinator layout and a scrolling sibling.</li>
+        </ul>
+         ]]></string>
 </resources>
