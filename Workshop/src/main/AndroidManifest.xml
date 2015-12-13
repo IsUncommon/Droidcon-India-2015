@@ -81,6 +81,11 @@
         <activity
             android:name=".toolbar.AppbarDemoActivity"
             android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
+
+        <activity
+            android:exported="true"
+            android:name=".toolbar.CollapsibleToolbarDemoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
