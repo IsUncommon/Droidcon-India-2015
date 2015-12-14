@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements PrimarySectionsAd
         String[] summaries = getResources().getStringArray(R.array.primary_content_description);
         TypedArray images = getResources().obtainTypedArray(R.array.primary_content_images);
         TypedArray colors = getResources().obtainTypedArray(R.array.primary_content_colors);
-        int[] layoutIds = new int[] { R.layout.stub_layout_controls, R.layout.stub_components_one_controls, R.layout.stub_components_two_controls, R.layout.stub_layout_controls, R.layout.stub_layout_controls };
+        int[] layoutIds = new int[] { R.layout.stub_layout_controls, R.layout.stub_components_one_controls, R.layout.stub_components_two_controls, R.layout.stub_palette_controls, R.layout.stub_layout_controls };
         mPrimaryContents = new ArrayList<>();
         for (int i = 0; i < headings.length; i++) {
             PrimaryContent content = new PrimaryContent();
