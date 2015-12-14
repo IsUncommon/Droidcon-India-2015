@@ -89,6 +89,10 @@
         <activity
             android:name=".tabs.TabsDemoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".tabs.TabsCustomViewDemoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

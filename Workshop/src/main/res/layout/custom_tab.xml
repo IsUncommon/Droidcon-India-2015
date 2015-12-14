@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:minWidth="64dp"
+    android:layout_height="48dp"
+    android:layout_gravity="bottom">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:id="@android:id/icon"
+        android:src="@drawable/ic_add_white_24dp"/>
+
+    <TextView
+        android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@android:id/text1"
+        android:gravity="center"
+        android:layout_toEndOf="@android:id/icon"
+        android:layout_toRightOf="@android:id/icon"
+        android:text="Tab 1"/>
+</RelativeLayout>
