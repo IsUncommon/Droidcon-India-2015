@@ -108,4 +108,5 @@
          ]]></string>
     <string name="lorem_hint">Lorem ipsum dolor sit amet</string>
     <string name="this_is_a_button">This is a button</string>
+    <string name="share">Share</string>
 </resources>
