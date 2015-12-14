@@ -1,5 +1,7 @@
 package is.uncommon.droidcon2015;
 
+import android.animation.AnimatorSet;
+import android.animation.ValueAnimator;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,7 +35,7 @@ public class PaletteActivity extends AppCompatActivity implements ViewPager.OnPa
     @Bind(R.id.btn_vibrant) Button mVibrantButton;
     @Bind(R.id.btn_muted) Button mMutedButton;
 
-    private static final int[] IMAGES = { R.drawable.palette5, R.drawable.palette6, R.drawable.palette3, R.drawable.palette4 };
+    private static final int[] IMAGES = { R.drawable.palette5, R.drawable.palette6, R.drawable.palette3 };
     private WeakHashMap<Bitmap, Palette> mBitmapPaletteMap;
     private boolean isVibrantSelected = true;
 
@@ -95,16 +98,54 @@ public class PaletteActivity extends AppCompatActivity implements ViewPager.OnPa
         int mutedHeadColor = palette.getMutedColor(0xffbbbbbb);
         int mutedSubheadColor = palette.getDarkMutedColor(0xffbbbbbb);
         int mutedBodyColor = palette.getLightMutedColor(0xffbbbbbb);
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ValueAnimator headerColorAnimator = ValueAnimator.ofArgb(mHeadingTextView.getCurrentTextColor(), isVibrantSelected ? vibrantHeadColor : mutedHeadColor);
+            headerColorAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    int color = (int) valueAnimator.getAnimatedValue();
+                    mHeadingTextView.setTextColor(color);
+                }
+            });
 
-        if (isVibrantSelected) {
-            mHeadingTextView.setTextColor(vibrantHeadColor);
-            mSubheadingTextView.setTextColor(vibrantSubheadColor);
-            mBodyTextView.setTextColor(vibrantBodyColor);
+            ValueAnimator subheadColorAnimator = ValueAnimator.ofArgb(mSubheadingTextView.getCurrentTextColor(), isVibrantSelected ? vibrantSubheadColor : mutedSubheadColor);
+            subheadColorAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    int color = (int) valueAnimator.getAnimatedValue();
+                    mSubheadingTextView.setTextColor(color);
+                }
+            });
+
+            ValueAnimator bodyColorAnimator = ValueAnimator.ofArgb(mBodyTextView.getCurrentTextColor(), isVibrantSelected ? vibrantBodyColor : mutedBodyColor);
+            bodyColorAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                @Override
+                public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                    int color = (int) valueAnimator.getAnimatedValue();
+                    mBodyTextView.setTextColor(color);
+                }
+            });
+
+            AnimatorSet set1 = new AnimatorSet();
+            set1.play(headerColorAnimator).with(subheadColorAnimator);
+            AnimatorSet set2 = new AnimatorSet();
+            set2.play(set1).with(bodyColorAnimator);
+
+            set2.setDuration(300);
+            set2.setInterpolator(new AccelerateDecelerateInterpolator());
+            set2.start();
         } else {
-            mHeadingTextView.setTextColor(mutedHeadColor);
-            mSubheadingTextView.setTextColor(mutedSubheadColor);
-            mBodyTextView.setTextColor(mutedBodyColor);
+            if (isVibrantSelected) {
+                mHeadingTextView.setTextColor(vibrantHeadColor);
+                mSubheadingTextView.setTextColor(vibrantSubheadColor);
+                mBodyTextView.setTextColor(vibrantBodyColor);
+            } else {
+                mHeadingTextView.setTextColor(mutedHeadColor);
+                mSubheadingTextView.setTextColor(mutedSubheadColor);
+                mBodyTextView.setTextColor(mutedBodyColor);
+            }
         }
+
     }
 
     private void generatePalette(final Bitmap bitmap) {
@@ -135,6 +176,7 @@ public class PaletteActivity extends AppCompatActivity implements ViewPager.OnPa
         public Object instantiateItem(ViewGroup container, int position) {
             View view = LayoutInflater.from(container.getContext()).inflate(R.layout.page_palette, container, false);
             ButterKnife.bind(this, view);
+            //this should be loaded async, nvm now
             imageView.setImageResource(IMAGES[position]);
             container.addView(view);
             return view;
