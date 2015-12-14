@@ -118,4 +118,6 @@
     <string name="this_is_a_button">This is a button</string>
     <string name="share">Share</string>
     <string name="pull_from_left_edge">Pull from the left edge to see the NavigationView drawer.</string>
+    <string name="content">CONTENT</string>
+    <string name="demos">DEMOS</string>
 </resources>
