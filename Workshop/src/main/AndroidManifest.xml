@@ -51,6 +51,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
+            android:name=".fab.FabDialogSheetMorphActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".fab.FabSpeedDialTransitionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -83,9 +87,27 @@
             android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
 
         <activity
-            android:exported="true"
-            android:name=".toolbar.CollapsibleToolbarDemoActivity"
+            android:name=".toolbar.CollapsingToolbarDemoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".tabs.TabsDemoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".tabs.TabsCustomViewDemoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".OtherAppCompatControlsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".SwipeRefreshLayoutDemoActivity"
+            android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
+
+        <activity
+            android:name=".NavigationViewActivity"
+            android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
     </application>
 
 </manifest>

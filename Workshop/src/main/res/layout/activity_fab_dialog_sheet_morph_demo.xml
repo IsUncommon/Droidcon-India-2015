@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#dfdfdf"
+    android:fitsSystemWindows="true"
+    android:id="@+id/rootview"
+    tools:context=".fab.FabSpeedDialTransitionActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="900dp"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="@string/lorem_paragraph" />
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:text="@string/lorem_paragraph" />
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="90dp"
+                android:paddingTop="16dp"
+                android:text="@string/lorem_paragraph" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/dialog_sheet"
+        android:layout_width="180dp"
+        android:layout_height="240dp"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="#fff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusableInTouchMode="true">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/lorem_paragraph"
+                android:maxLines="10"
+                android:padding="8dp"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/compose_button"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:background="?attr/colorAccent"
+                android:text="Compose New"
+                android:textColor="#fff"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:src="@drawable/ic_add_white_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        android:clickable="true" />
+</android.support.design.widget.CoordinatorLayout>

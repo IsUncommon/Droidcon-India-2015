@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorAccentDark">#AA4081</color>
 
     <color name="debian_red">#C4075A</color>
     <color name="violet_blue">#3E4EB8</color>

@@ -1,29 +1,21 @@
 package is.uncommon.droidcon2015.toolbar;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.ViewTreeObserver;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import is.uncommon.droidcon2015.R;
 import is.uncommon.droidcon2015.buttons.TintRowViewHolder;
-import is.uncommon.droidcon2015.utils.HtmlUtils;
 
 /**
  * Created by Madhu on 12/12/15.
  */
-public class CollapsibleToolbarDemoActivity extends AppCompatActivity {
+public class CollapsingToolbarDemoActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar) Toolbar mToolbar;
     @Bind(R.id.collapsing_toolbar) CollapsingToolbarLayout mCollapsingToolbar;
