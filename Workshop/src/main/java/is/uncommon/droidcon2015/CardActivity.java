@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.widget.SeekBar;
 
@@ -29,15 +30,18 @@ public class CardActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Cards.");
 
         mElevationSeekBar.setOnSeekBarChangeListener(elevationChangeListener);
-        mElevationSeekBar.setMax(20);
+        mElevationSeekBar.setMax((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics()));
+
         mRadiusSeekBar.setOnSeekBarChangeListener(radiusChangeListener);
-        mRadiusSeekBar.setMax(40);
+        mRadiusSeekBar.setMax((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics()));
     }
 
     SeekBar.OnSeekBarChangeListener elevationChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+            int willuse = progress + 2;
+            float elev = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, willuse, getResources().getDisplayMetrics());
+            mCardView.setCardElevation(elev);
         }
 
         @Override
@@ -54,7 +58,9 @@ public class CardActivity extends AppCompatActivity {
     SeekBar.OnSeekBarChangeListener radiusChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+            int willuse = progress + 4;
+            float radius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, willuse, getResources().getDisplayMetrics());
+            mCardView.setRadius(radius);
         }
 
         @Override
