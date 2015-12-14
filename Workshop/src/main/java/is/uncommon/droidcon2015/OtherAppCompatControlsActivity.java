@@ -4,15 +4,20 @@ import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import butterknife.Bind;
@@ -24,6 +29,8 @@ public class OtherAppCompatControlsActivity extends AppCompatActivity {
     @Bind(R.id.toolbar) Toolbar mToolbar;
     @Bind(R.id.tv_other) TextView mTextView;
     @Bind(R.id.btn_other) Button mButton;
+    @Bind(R.id.til_other_password) TextInputLayout mPasswordTextInputLayout;
+    @Bind(R.id.et_password) EditText mPasswordEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +42,8 @@ public class OtherAppCompatControlsActivity extends AppCompatActivity {
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Other controls.");
+
+        setupPasswordTextChangeListener();
     }
 
     @Override
@@ -50,6 +59,30 @@ public class OtherAppCompatControlsActivity extends AppCompatActivity {
         shareActionProvider.setShareIntent(intent);
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    private void setupPasswordTextChangeListener() {
+        mPasswordEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!TextUtils.isDigitsOnly(s)) {
+                    mPasswordTextInputLayout.setError("Only numbers allowed!");
+                    mPasswordTextInputLayout.setErrorEnabled(true);
+                } else {
+                    mPasswordTextInputLayout.setErrorEnabled(false);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @OnClick(R.id.btn_other_textview_none)
