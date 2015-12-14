@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.LayoutRes;
 
 public class PrimaryContent implements Parcelable {
 
@@ -11,6 +12,8 @@ public class PrimaryContent implements Parcelable {
     public String summary;
     @DrawableRes public int image;
     @ColorRes public int color;
+    @LayoutRes public int layoutId;
+
 
     @Override
     public String toString() {
@@ -19,6 +22,7 @@ public class PrimaryContent implements Parcelable {
                 ", summary='" + summary + '\'' +
                 ", image=" + image +
                 ", color=" + color +
+                ", layoutId=" + layoutId +
                 '}';
     }
 
@@ -33,6 +37,7 @@ public class PrimaryContent implements Parcelable {
         dest.writeString(this.summary);
         dest.writeInt(this.image);
         dest.writeInt(this.color);
+        dest.writeInt(this.layoutId);
     }
 
     public PrimaryContent() {
@@ -43,6 +48,7 @@ public class PrimaryContent implements Parcelable {
         this.summary = in.readString();
         this.image = in.readInt();
         this.color = in.readInt();
+        this.layoutId = in.readInt();
     }
 
     public static final Creator<PrimaryContent> CREATOR = new Creator<PrimaryContent>() {
