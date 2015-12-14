@@ -2,10 +2,14 @@ package is.uncommon.droidcon2015;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
@@ -31,7 +35,22 @@ public class MainActivity extends AppCompatActivity implements PrimarySectionsAd
         ButterKnife.bind(this);
 
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setTitle(R.string.material_design);
+        setupRecyclerView();
 
+        CollapsingToolbarLayout ct = ButterKnife.findById(this, R.id.ct_header);
+        ct.setTitleEnabled(true);
+
+        AppBarLayout appBar = ButterKnife.findById(this, R.id.appbar);
+        appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+
+            }
+        });
+    }
+
+    private void setupRecyclerView() {
         mRecyclerView.setHasFixedSize(true);
         GridLayoutManager manager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(manager);

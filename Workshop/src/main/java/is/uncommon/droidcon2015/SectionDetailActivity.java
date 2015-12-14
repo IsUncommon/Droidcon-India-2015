@@ -3,6 +3,8 @@ package is.uncommon.droidcon2015;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ActivityCompat;
@@ -55,8 +57,9 @@ public class SectionDetailActivity extends AppCompatActivity {
         CollapsingToolbarLayout ct = ButterKnife.findById(this, R.id.ct_header);
         ct.setContentScrimColor(ContextCompat.getColor(this, mContent.color));
         ct.setStatusBarScrimColor(ContextCompat.getColor(this, mContent.color));
-
+        
         mHeaderImageView.setImageResource(mContent.image);
+        mHeaderImageView.setColorFilter(mContent.color, PorterDuff.Mode.SRC_ATOP);
         mSummaryTextView.setText(HtmlUtils.getHtml(mContent.summary, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,
                 getResources().getDisplayMetrics()), Color.parseColor("#c3c3c3")));
         getSupportActionBar().setTitle(mContent.sectionName);

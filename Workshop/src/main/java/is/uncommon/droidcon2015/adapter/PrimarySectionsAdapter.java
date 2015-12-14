@@ -67,7 +67,7 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
             title.setText(primaryContent.sectionName);
             int color = ContextCompat.getColor(title.getContext(), primaryContent.color);
             title.setBackgroundColor(color);
-            title.getBackground().setAlpha(70);
+            title.getBackground().setAlpha(150);
             viewColor.setBackgroundColor(color);
             imageView.setImageResource(primaryContent.image);
         }
