@@ -10,9 +10,9 @@
 
     <string-array name="primary_content_images">
         <item>@drawable/layout_1</item>
-        <item>@drawable/temp_image_car</item>
-        <item>@drawable/temp_image</item>
-        <item>@drawable/temp_image_car</item>
+        <item>@drawable/view_components_1</item>
+        <item>@drawable/view_components_2</item>
+        <item>@drawable/pallete</item>
         <item>@drawable/temp_image</item>
     </string-array>
 

@@ -50,6 +50,7 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
 
         @Bind(R.id.iv_card_image) ImageView imageView;
         @Bind(R.id.tv_card_title) TextView title;
+        @Bind(R.id.v_custom_color) View viewColor;
 
         public ViewHolder(final View itemView) {
             super(itemView);
@@ -64,7 +65,10 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
 
         public void bindData(PrimaryContent primaryContent) {
             title.setText(primaryContent.sectionName);
-            title.setBackgroundColor(ContextCompat.getColor(title.getContext(), primaryContent.color));
+            int color = ContextCompat.getColor(title.getContext(), primaryContent.color);
+            title.setBackgroundColor(color);
+            title.getBackground().setAlpha(70);
+            viewColor.setBackgroundColor(color);
             imageView.setImageResource(primaryContent.image);
         }
     }
