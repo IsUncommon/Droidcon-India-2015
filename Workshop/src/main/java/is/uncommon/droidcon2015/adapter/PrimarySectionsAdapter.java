@@ -1,5 +1,6 @@
 package is.uncommon.droidcon2015.adapter;
 
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,7 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
 
         public void bindData(PrimaryContent primaryContent) {
             title.setText(primaryContent.sectionName);
+            title.setBackgroundColor(ContextCompat.getColor(title.getContext(), primaryContent.color));
             imageView.setImageResource(primaryContent.image);
         }
     }

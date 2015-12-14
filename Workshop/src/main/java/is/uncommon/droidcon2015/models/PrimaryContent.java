@@ -2,18 +2,23 @@ package is.uncommon.droidcon2015.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 
 public class PrimaryContent implements Parcelable {
 
     public String sectionName;
     public String summary;
-    public int image;
+    @DrawableRes public int image;
+    @ColorRes public int color;
 
     @Override
     public String toString() {
         return "PrimaryContent{" +
                 "sectionName='" + sectionName + '\'' +
                 ", summary='" + summary + '\'' +
+                ", image=" + image +
+                ", color=" + color +
                 '}';
     }
 
@@ -26,6 +31,8 @@ public class PrimaryContent implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.sectionName);
         dest.writeString(this.summary);
+        dest.writeInt(this.image);
+        dest.writeInt(this.color);
     }
 
     public PrimaryContent() {
@@ -34,9 +41,11 @@ public class PrimaryContent implements Parcelable {
     protected PrimaryContent(Parcel in) {
         this.sectionName = in.readString();
         this.summary = in.readString();
+        this.image = in.readInt();
+        this.color = in.readInt();
     }
 
-    public static final Parcelable.Creator<PrimaryContent> CREATOR = new Parcelable.Creator<PrimaryContent>() {
+    public static final Creator<PrimaryContent> CREATOR = new Creator<PrimaryContent>() {
         public PrimaryContent createFromParcel(Parcel source) {
             return new PrimaryContent(source);
         }

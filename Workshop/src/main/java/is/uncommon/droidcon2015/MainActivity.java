@@ -1,10 +1,7 @@
 package is.uncommon.droidcon2015;
 
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,7 +15,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import is.uncommon.droidcon2015.adapter.PrimarySectionsAdapter;
 import is.uncommon.droidcon2015.models.PrimaryContent;
-import is.uncommon.droidcon2015.utils.Extras;
 
 public class MainActivity extends AppCompatActivity implements PrimarySectionsAdapter.ClickInterface {
 
@@ -42,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements PrimarySectionsAd
         String[] headings = getResources().getStringArray(R.array.primary_content_headings);
         String[] summaries = getResources().getStringArray(R.array.primary_content_description);
         TypedArray images = getResources().obtainTypedArray(R.array.primary_content_images);
+        TypedArray colors = getResources().obtainTypedArray(R.array.primary_content_colors);
 
         mPrimaryContents = new ArrayList<>();
         for (int i = 0; i < headings.length; i++) {
@@ -49,9 +46,11 @@ public class MainActivity extends AppCompatActivity implements PrimarySectionsAd
             content.sectionName = headings[i];
             content.summary = summaries[i];
             content.image = images.getResourceId(i, -1);
+            content.color = colors.getResourceId(i, -1);
             mPrimaryContents.add(content);
         }
         images.recycle();
+        colors.recycle();
         mRecyclerView.setAdapter(new PrimarySectionsAdapter(this, mPrimaryContents));
     }
 

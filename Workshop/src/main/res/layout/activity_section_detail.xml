@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/ct_header"
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:fitsSystemWindows="true"
@@ -42,14 +43,22 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <!--<TextView
-        android:id="@+id/tv_card_summary"
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/view_margin"
-        android:layout_marginLeft="@dimen/view_margin"
-        android:layout_marginRight="@dimen/view_margin"
-        android:ellipsize="end"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />-->
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/tv_card_summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/view_margin"
+            android:layout_marginLeft="@dimen/view_margin"
+            android:layout_marginRight="@dimen/view_margin"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    </android.support.v4.widget.NestedScrollView>
 
 </android.support.design.widget.CoordinatorLayout>

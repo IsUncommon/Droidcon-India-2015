@@ -15,6 +15,15 @@
         <item>@drawable/temp_image_car</item>
         <item>@drawable/temp_image</item>
     </string-array>
+
+    <string-array name="primary_content_colors">
+        <item>@color/debian_red</item>
+        <item>@color/violet_blue</item>
+        <item>@color/violet_blue</item>
+        <item>@color/arsenic</item>
+        <item>@color/gossamer</item>
+    </string-array>
+
     <string-array name="primary_content_description">
         <item><![CDATA[
 <p>

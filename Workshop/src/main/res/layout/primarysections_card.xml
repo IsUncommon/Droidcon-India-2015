@@ -23,10 +23,18 @@
             android:id="@+id/tv_card_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/view_margin"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:gravity="center_vertical"
             android:layout_gravity="bottom"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+            android:minLines="2"
+            android:maxLines="2"
+            android:textSize="14sp"
+            android:ellipsize="marquee"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@android:color/white"/>
 
     </FrameLayout>
 </android.support.v7.widget.CardView>
