@@ -83,8 +83,11 @@
             android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
 
         <activity
-            android:exported="true"
-            android:name=".toolbar.CollapsibleToolbarDemoActivity"
+            android:name=".toolbar.CollapsingToolbarDemoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".TabsDemoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

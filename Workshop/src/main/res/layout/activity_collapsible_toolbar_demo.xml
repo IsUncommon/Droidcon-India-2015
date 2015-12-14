@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:fitsSystemWindows="true"
-    tools:context=".toolbar.CollapsibleToolbarDemoActivity">
+    tools:context=".toolbar.CollapsingToolbarDemoActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

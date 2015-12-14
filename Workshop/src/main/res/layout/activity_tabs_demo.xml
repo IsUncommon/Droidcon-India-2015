@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="#dfdfdf"
+    android:fitsSystemWindows="true"
+    tools:context=".TabsDemoActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="#fff"
+            app:tabIndicatorHeight="2dp"
+            app:tabMinWidth="60dp"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="#fff"
+            app:tabTextAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:tabTextColor="#c3c3c3">
+
+        </android.support.design.widget.TabLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/add_tab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Tab" />
+
+                    <Button
+                        android:id="@+id/remove_tab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Remove Tab" />
+                </LinearLayout>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/show_icons_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Show Icons" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/show_text_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Show Text" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/scrollable_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Scrollable Tabs" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Tab Indicator Color" />
+
+                <include
+                    android:id="@+id/tab_indicator_color_selector"
+                    layout="@layout/tint_row"></include>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tab Selected Text Color" />
+
+                <include
+                    android:id="@+id/tab_selected_text_color_selector"
+                    layout="@layout/tint_row"></include>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tab Normal Text Color" />
+
+                <include
+                    android:id="@+id/tab_normal_text_color_selector"
+                    layout="@layout/tint_row"></include>
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/wire_pager_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wire Pager" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#c3c3c3">
+
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
