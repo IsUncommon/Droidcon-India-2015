@@ -5,7 +5,7 @@
         <item>View Components - 1</item>
         <item>View Components - 2</item>
         <item>Palette</item>
-        <item>Styles, Themes and Backward Compatibility</item>
+        <item>Styles and Themes</item>
     </string-array>
 
     <string-array name="primary_content_images">
@@ -28,7 +28,7 @@
         <item><![CDATA[
 <p>
 This part deals with material design recommended layouts to structure the content of application.
-Contains demo samples for seams, steps, 8dp rythms, elevations, shadows, metrics and region
+Contains demo samples for seams, steps, 8dp rhythms, elevations, shadows, metrics and region
 </p>
 <ul>
 <li> Create layouts by combining papers that are attached to each other (seams)</li>
@@ -48,7 +48,7 @@ This part explores in depth material components like Buttons, Floating Action Bu
   <b> Button </b>
   	<ul>
   		<li>
-  			Understand material design sepcification for Button.
+  			Understand material design specification for Button.
   		</li>
   		<li>
   			Explore different states of Button. Raised buttons, floating buttons and flat buttons.
@@ -68,7 +68,7 @@ This part explores in depth material components like Buttons, Floating Action Bu
   			Explore specification for FAB, understand when and how to use it.
   		</li>
   		<li>
-  			Explore placement, appearance and disapperance of FAB.
+  			Explore placement, appearance and disappearance of FAB.
   		</li>
   		<li>
   			Explore various FAB transitions like speed Dial transition, tabbed layout transition, toolbar transition and custom transitions.
@@ -127,7 +127,7 @@ Contains demos that delve into various aspects of these components and available
   <b> App bar </b>
   	<ul>
   		<li>
-  			Understand material design sepcification for App bar.
+  			Understand material design specification for App bar.
   		</li>
   		<li>
   			Explore different customizations available for App bar.
