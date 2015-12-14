@@ -96,6 +96,10 @@
         <activity
             android:name=".OtherAppCompatControlsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".SwipeRefreshLayoutDemoActivity"
+            android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
     </application>
 
 </manifest>

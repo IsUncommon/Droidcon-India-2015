@@ -106,6 +106,13 @@
         <li>Tightly coupled with coordinator layout and a scrolling sibling.</li>
         </ul>
          ]]></string>
+    <string name="swipe_refresh_demo"><![CDATA[
+        <ul>
+        <li>Pull down for a swipe refresh.</li>
+        <li>Notice the colors while refresh is in progress.</li>
+        <li>Will Stop refreshing adter 5 seconds.</li>
+        </ul>
+         ]]></string>
     <string name="lorem_hint">Lorem ipsum dolor sit amet</string>
     <string name="this_is_a_button">This is a button</string>
     <string name="share">Share</string>
