@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.ViewStub;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,6 +31,9 @@ public class SectionDetailActivity extends AppCompatActivity {
     @Bind(R.id.toolbar) Toolbar mToolbar;
     @Bind(R.id.iv_header_image) ImageView mHeaderImageView;
     @Bind(R.id.tv_card_summary) TextView mSummaryTextView;
+    @Bind(R.id.stub) ViewStub mViewStub;
+
+    private PrimaryContent mContent;
 
     public static void startActivity(Activity activity, PrimaryContent content, ImageView imageView) {
         Intent intent = new Intent(activity, SectionDetailActivity.class);
@@ -45,21 +49,22 @@ public class SectionDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_section_detail);
         ButterKnife.bind(this);
 
-        PrimaryContent content = getIntent().getParcelableExtra(Extras.CONTENT);
+        mContent = getIntent().getParcelableExtra(Extras.CONTENT);
         setSupportActionBar(mToolbar);
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         CollapsingToolbarLayout ct = ButterKnife.findById(this, R.id.ct_header);
-        ct.setContentScrimColor(ContextCompat.getColor(this, content.color));
-        ct.setStatusBarScrimColor(ContextCompat.getColor(this, content.color));
-
-        mHeaderImageView.setImageResource(content.image);
-        mHeaderImageView.setColorFilter(content.color, PorterDuff.Mode.SRC_ATOP);
+        ct.setContentScrimColor(ContextCompat.getColor(this, mContent.color));
+        ct.setStatusBarScrimColor(ContextCompat.getColor(this, mContent.color));
         
-        mSummaryTextView.setText(HtmlUtils.getHtml(content.summary, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,
+        mHeaderImageView.setImageResource(mContent.image);
+        mHeaderImageView.setColorFilter(mContent.color, PorterDuff.Mode.SRC_ATOP);
+        mSummaryTextView.setText(HtmlUtils.getHtml(mContent.summary, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,
                 getResources().getDisplayMetrics()), Color.parseColor("#c3c3c3")));
-        getSupportActionBar().setTitle(content.sectionName);
+        getSupportActionBar().setTitle(mContent.sectionName);
+        mViewStub.setLayoutResource(mContent.layoutId);
+        mViewStub.inflate();
     }
 
     @Override

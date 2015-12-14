@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#fff"
+    app:cardElevation="2dp"
+    app:contentPadding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/action_components_one_button"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buttons Demo"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/action_components_one_fab_controls"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FAB Controls"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <Button
+                android:id="@+id/action_components_one_fab_tabs_behavior"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FAB Tab Behavior"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/action_components_one_fab_toolbar_transition"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAB Toolbar Transition"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <Button
+            android:id="@+id/action_components_one_fab_speeddial_transition"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAB Speeddial Transition"
+            android:textColor="@color/colorPrimaryDark" />
+
+
+        <Button
+            android:id="@+id/action_components_one_fab_sheet_morph"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAB Sheet Morph"
+            android:textColor="@color/colorPrimaryDark" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/action_components_one_cards"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cards Demo"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <Button
+                android:id="@+id/action_components_one_snackbar"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Snackbar Demo"
+                android:textColor="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/action_components_one_appcompat_tinting"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AppCompat Widget Tinting"
+            android:textColor="@color/colorPrimaryDark" />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
