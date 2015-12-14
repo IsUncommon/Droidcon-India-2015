@@ -10,11 +10,16 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import butterknife.Bind;
@@ -23,7 +28,7 @@ import is.uncommon.droidcon2015.models.PrimaryContent;
 import is.uncommon.droidcon2015.utils.Extras;
 import is.uncommon.droidcon2015.utils.HtmlUtils;
 
-public class SectionDetailActivity extends AppCompatActivity {
+public class SectionDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final static String TAG = "SectionDetailActivity";
 
@@ -68,7 +73,20 @@ public class SectionDetailActivity extends AppCompatActivity {
                 getResources().getDisplayMetrics()), Color.parseColor("#c3c3c3")));
         getSupportActionBar().setTitle(mContent.sectionName);
         mViewStub.setLayoutResource(mContent.layoutId);
-        mViewStub.inflate();
+        ViewGroup group = (ViewGroup) mViewStub.inflate();
+        addViewGroupButtonClicks(group);
+
+    }
+
+    private void addViewGroupButtonClicks(ViewGroup group) {
+        for (int i = 0; i < group.getChildCount(); i++) {
+            View child = group.getChildAt(i);
+            if (child instanceof Button || child instanceof AppCompatButton) {
+                child.setOnClickListener(this);
+            } else if (child instanceof LinearLayout) {
+                addViewGroupButtonClicks((ViewGroup) child);
+            }
+        }
     }
 
     @Override
@@ -86,5 +104,10 @@ public class SectionDetailActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         supportFinishAfterTransition();
+    }
+
+    @Override
+    public void onClick(View view) {
+        ActivityUtils.launch(this, view.getId());
     }
 }
