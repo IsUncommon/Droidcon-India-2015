@@ -1,8 +1,6 @@
 package is.uncommon.droidcon2015.adapter;
 
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +13,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import is.uncommon.droidcon2015.R;
 import is.uncommon.droidcon2015.models.PrimaryContent;
-import is.uncommon.droidcon2015.utils.HtmlUtils;
 
 public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySectionsAdapter.ViewHolder> {
 
@@ -50,9 +47,8 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
 
     protected class ViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.card_image) ImageView imageView;
-        @Bind(R.id.card_title) TextView title;
-        @Bind(R.id.card_summary) TextView summary;
+        @Bind(R.id.iv_card_image) ImageView imageView;
+        @Bind(R.id.tv_card_title) TextView title;
 
         public ViewHolder(final View itemView) {
             super(itemView);
@@ -67,13 +63,7 @@ public class PrimarySectionsAdapter extends RecyclerView.Adapter<PrimarySections
 
         public void bindData(PrimaryContent primaryContent) {
             title.setText(primaryContent.sectionName);
-            if (getLayoutPosition() % 2 == 0) {
-                imageView.setImageResource(R.drawable.temp_image);
-            } else {
-                imageView.setImageResource(R.drawable.temp_image_car);
-            }
-            summary.setText(HtmlUtils.getHtml(primaryContent.summary, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2,
-                    itemView.getResources().getDisplayMetrics()), Color.parseColor("#c3c3c3")));
+            imageView.setImageResource(primaryContent.image);
         }
     }
 }

@@ -42,4 +42,14 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!--<TextView
+        android:id="@+id/tv_card_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/view_margin"
+        android:layout_marginLeft="@dimen/view_margin"
+        android:layout_marginRight="@dimen/view_margin"
+        android:ellipsize="end"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />-->
+
 </android.support.design.widget.CoordinatorLayout>

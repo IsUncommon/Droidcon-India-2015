@@ -1,11 +1,12 @@
 package is.uncommon.droidcon2015;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
@@ -36,30 +37,26 @@ public class MainActivity extends AppCompatActivity implements PrimarySectionsAd
         setSupportActionBar(mToolbar);
 
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        GridLayoutManager manager = new GridLayoutManager(this, 2);
+        mRecyclerView.setLayoutManager(manager);
         String[] headings = getResources().getStringArray(R.array.primary_content_headings);
         String[] summaries = getResources().getStringArray(R.array.primary_content_description);
+        TypedArray images = getResources().obtainTypedArray(R.array.primary_content_images);
+
         mPrimaryContents = new ArrayList<>();
         for (int i = 0; i < headings.length; i++) {
             PrimaryContent content = new PrimaryContent();
             content.sectionName = headings[i];
             content.summary = summaries[i];
+            content.image = images.getResourceId(i, -1);
             mPrimaryContents.add(content);
         }
+        images.recycle();
         mRecyclerView.setAdapter(new PrimarySectionsAdapter(this, mPrimaryContents));
     }
 
     @Override
     public void onClickCard(int position, ImageView imageView) {
-        Intent intent = new Intent(this, SectionDetailActivity.class);
-        intent.putExtra(Extras.CONTENT, mPrimaryContents.get(position));
-        if (position % 2 == 0) {
-            intent.putExtra(Extras.HEADER_IMAGE, R.drawable.temp_image);
-        } else {
-            intent.putExtra(Extras.HEADER_IMAGE, R.drawable.temp_image_car);
-        }
-
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, imageView, "header_image");
-        ActivityCompat.startActivity(this, intent, options.toBundle());
+        SectionDetailActivity.startActivity(this, mPrimaryContents.get(position), imageView);
     }
 }

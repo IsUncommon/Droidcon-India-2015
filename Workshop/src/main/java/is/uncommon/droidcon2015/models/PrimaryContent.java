@@ -7,6 +7,7 @@ public class PrimaryContent implements Parcelable {
 
     public String sectionName;
     public String summary;
+    public int image;
 
     @Override
     public String toString() {

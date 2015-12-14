@@ -8,6 +8,13 @@
         <item>Styles, Themes and Backward Compatibility</item>
     </string-array>
 
+    <string-array name="primary_content_images">
+        <item>@drawable/layout_1</item>
+        <item>@drawable/temp_image_car</item>
+        <item>@drawable/temp_image</item>
+        <item>@drawable/temp_image_car</item>
+        <item>@drawable/temp_image</item>
+    </string-array>
     <string-array name="primary_content_description">
         <item><![CDATA[
 <p>
