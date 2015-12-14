@@ -1,4 +1,4 @@
-package is.uncommon.droidcon2015;
+package is.uncommon.droidcon2015.tabs;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
@@ -18,6 +18,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import is.uncommon.droidcon2015.R;
 import is.uncommon.droidcon2015.buttons.TintRowViewHolder;
 import is.uncommon.droidcon2015.fab.FabTabsBehaviorPagerAdapter;
 

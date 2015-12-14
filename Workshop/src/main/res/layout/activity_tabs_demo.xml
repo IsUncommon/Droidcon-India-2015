@@ -7,7 +7,7 @@
     android:animateLayoutChanges="true"
     android:background="#dfdfdf"
     android:fitsSystemWindows="true"
-    tools:context=".TabsDemoActivity">
+    tools:context=".tabs.TabsDemoActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

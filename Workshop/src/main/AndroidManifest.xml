@@ -87,7 +87,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".TabsDemoActivity"
+            android:name=".tabs.TabsDemoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
