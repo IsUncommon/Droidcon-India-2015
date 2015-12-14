@@ -104,6 +104,10 @@
         <activity
             android:name=".SwipeRefreshLayoutDemoActivity"
             android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
+
+        <activity
+            android:name=".NavigationViewActivity"
+            android:theme="@style/AppTheme.CLExistingBehaviorActivity" />
     </application>
 
 </manifest>

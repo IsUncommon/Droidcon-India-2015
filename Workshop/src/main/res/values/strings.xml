@@ -116,4 +116,5 @@
     <string name="lorem_hint">Lorem ipsum dolor sit amet</string>
     <string name="this_is_a_button">This is a button</string>
     <string name="share">Share</string>
+    <string name="pull_from_left_edge">Pull from the left edge to see the NavigationView drawer.</string>
 </resources>
