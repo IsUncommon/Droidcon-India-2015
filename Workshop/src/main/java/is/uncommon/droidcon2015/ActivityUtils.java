@@ -55,6 +55,8 @@ public class ActivityUtils {
             intent = new Intent(activity, CLAnchorsActivity.class);
         } else if (resId == R.id.action_components_two_existing_behavior) {
             intent = new Intent(activity, CLExistingBehaviorActivity.class);
+        } else if (resId == R.id.action_components_two_custom_behavior) {
+            intent = new Intent(activity, StepsDemoActivity.class);
         } else if (resId == R.id.action_components_two_swipe_dismiss) {
             intent = new Intent(activity, CLSwipeDismissBehaviorActivity.class);
         } else if (resId == R.id.action_components_two_appbar) {

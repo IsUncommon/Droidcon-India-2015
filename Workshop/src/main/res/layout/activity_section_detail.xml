@@ -19,6 +19,9 @@
             android:layout_height="240dp"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
+            app:titleEnabled="true"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.CollapsedTitle"
+            app:expandedTitleTextAppearance="@style/TextAppearance.ExpandedTitle"
             app:expandedTitleMarginEnd="@dimen/activity_horizontal_margin"
             app:expandedTitleMarginStart="@dimen/activity_horizontal_margin"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
@@ -57,10 +60,11 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_title1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DEMOS"
-                style="@style/TextAppearance.AppCompat.Subhead"/>
+                android:text="@string/demos"
+                style="@style/TextAppearance.AppCompat.Subhead" />
 
             <ViewStub
                 android:layout_marginTop="8dp"
@@ -69,11 +73,12 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/tv_title2"
                 android:layout_marginTop="16dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CONTENT"
-                style="@style/TextAppearance.AppCompat.Subhead"/>
+                android:text="@string/content"
+                style="@style/TextAppearance.AppCompat.Subhead" />
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"

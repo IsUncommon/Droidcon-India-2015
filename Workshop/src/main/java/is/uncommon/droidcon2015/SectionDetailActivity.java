@@ -58,9 +58,14 @@ public class SectionDetailActivity extends AppCompatActivity implements View.OnC
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        int color = ContextCompat.getColor(this, mContent.color);
+
         CollapsingToolbarLayout ct = ButterKnife.findById(this, R.id.ct_header);
-        ct.setContentScrimColor(ContextCompat.getColor(this, mContent.color));
-        ct.setStatusBarScrimColor(ContextCompat.getColor(this, mContent.color));
+        ct.setContentScrimColor(color);
+        ct.setStatusBarScrimColor(color);
+
+        ((TextView) ButterKnife.findById(this, R.id.tv_title1)).setTextColor(color);
+        ((TextView) ButterKnife.findById(this, R.id.tv_title2)).setTextColor(color);
 
         mHeaderImageView.setImageResource(mContent.image);
         mHeaderImageView.setColorFilter(mContent.color, PorterDuff.Mode.SRC_ATOP);

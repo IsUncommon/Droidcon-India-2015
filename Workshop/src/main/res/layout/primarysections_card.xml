@@ -39,7 +39,7 @@
                 android:maxLines="2"
                 android:textSize="14sp"
                 android:ellipsize="marquee"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                android:textAppearance="@style/TextAppearance.SectionTitle"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
