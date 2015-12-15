@@ -30,10 +30,10 @@ public class CardActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Cards.");
 
         mElevationSeekBar.setOnSeekBarChangeListener(elevationChangeListener);
-        mElevationSeekBar.setMax((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics()));
+        mElevationSeekBar.setMax((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16, getResources().getDisplayMetrics()));
 
         mRadiusSeekBar.setOnSeekBarChangeListener(radiusChangeListener);
-        mRadiusSeekBar.setMax((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics()));
+        mRadiusSeekBar.setMax((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, getResources().getDisplayMetrics()));
     }
 
     SeekBar.OnSeekBarChangeListener elevationChangeListener = new SeekBar.OnSeekBarChangeListener() {
@@ -58,8 +58,7 @@ public class CardActivity extends AppCompatActivity {
     SeekBar.OnSeekBarChangeListener radiusChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            int willuse = progress + 4;
-            float radius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, willuse, getResources().getDisplayMetrics());
+            float radius = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, progress, getResources().getDisplayMetrics());
             mCardView.setRadius(radius);
         }
 
