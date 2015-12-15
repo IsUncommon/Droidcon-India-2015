@@ -117,6 +117,9 @@ public class ButtonsDemoActivity extends AppCompatActivity implements TintRowVie
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(color);
+        } else {
+            // Toolbar doesn't support tinting so far.
+            mToolbar.setBackgroundColor(color);
         }
     }
 
