@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -44,9 +43,12 @@ public class CLAnchorsActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cl_anchors);
         ButterKnife.bind(this);
+
         setSupportActionBar(mToolbar);
+        //noinspection ConstantConditions
         getSupportActionBar().setTitle("Anchors Demo");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         HtmlUtils.setHtmlText(mText, getString(R.string.cl_anchors_description));
         ImageButton[] sheetButtons = new ImageButton[] {
                 mSheet1LeftTop, mSheet1LeftCenter, mSheet1LeftBottom,
@@ -81,22 +83,22 @@ public class CLAnchorsActivity extends AppCompatActivity implements View.OnClick
         int gravity = -1;
         if (view.getId() == R.id.sheet1_left_top) {
             layoutId = R.id.sheet1;
-            gravity = Gravity.LEFT | Gravity.TOP;
+            gravity = Gravity.START | Gravity.TOP;
         } else if (view.getId() == R.id.sheet1_left_center) {
             layoutId = R.id.sheet1;
-            gravity = Gravity.LEFT | Gravity.CENTER;
+            gravity = Gravity.START | Gravity.CENTER;
         } else if (view.getId() == R.id.sheet1_left_bottom) {
             layoutId = R.id.sheet1;
-            gravity = Gravity.LEFT | Gravity.BOTTOM;
+            gravity = Gravity.START | Gravity.BOTTOM;
         } else if (view.getId() == R.id.sheet1_right_top) {
             layoutId = R.id.sheet1;
-            gravity = Gravity.RIGHT | Gravity.TOP;
+            gravity = Gravity.END | Gravity.TOP;
         } else if (view.getId() == R.id.sheet1_right_center) {
             layoutId = R.id.sheet1;
-            gravity = Gravity.RIGHT | Gravity.CENTER;
+            gravity = Gravity.END | Gravity.CENTER;
         } else if (view.getId() == R.id.sheet1_right_bottom) {
             layoutId = R.id.sheet1;
-            gravity = Gravity.RIGHT | Gravity.BOTTOM;
+            gravity = Gravity.END | Gravity.BOTTOM;
         } else if (view.getId() == R.id.sheet1_center_top) {
             layoutId = R.id.sheet1;
             gravity = Gravity.CENTER | Gravity.TOP;
