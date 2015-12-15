@@ -108,7 +108,7 @@ public class ButtonsDemoActivity extends AppCompatActivity implements TintRowVie
     private void changeTintColor(int color) {
         ColorStateList colorState = ColorStateList.valueOf(color);
         mDemoButton.setSupportBackgroundTintList(colorState);
-        ViewCompat.setBackgroundTintList(mFab, colorState);
+        mFab.setBackgroundTintList(colorState);
         ViewCompat.setBackgroundTintList(mAppbar, colorState);
         ViewCompat.setBackgroundTintList(mToolbar, colorState);
         mDemoFlatButton.setTextColor(colorState);
