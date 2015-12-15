@@ -33,7 +33,7 @@
             android:layout_gravity="center"
             android:src="@drawable/ic_done_white_24dp"
             app:fabSize="normal"
-            app:layout_anchor="@id/bottom_sheet"
+            app:layout_anchor="@+id/bottom_sheet"
             app:layout_anchorGravity="center" />
 
         <android.support.design.widget.FloatingActionButton
