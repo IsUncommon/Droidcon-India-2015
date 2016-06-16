@@ -2,19 +2,19 @@
 
 This is a repository of code samples, demos and exercises meant for our Droidcon India 2015 [Delightful Apps with Material Design](https://droidcon.in/2015/material-design-workshop) Workshop.
 
-## Articles
+##### Articles
 * PorterDuff compositing and blending modes - http://ssp.impulsetrain.com/porterduff.html
 * AndroidWeekly newsletter - http://androidweekly.net/
 
-## Videos
+##### Videos
 * Android Studio for Experts - https://www.youtube.com/watch?v=Y2GC6P5hPeA
 
-## Apps
+##### Apps
 * Plaid - https://github.com/nickbutcher/plaid
 * Cheesesquare - https://github.com/chrisbanes/cheesesquare
 
 
-## About
+#### About
 The project maintained by [app development agency](http://www.uncommon.is) [Uncommon.](http://www.uncommon.is)
 See our other [open-source projects](https://github.com/isuncommon) or [hire](http://www.uncommon.is/#contact-us) us to design, develop, and grow your product.
 
