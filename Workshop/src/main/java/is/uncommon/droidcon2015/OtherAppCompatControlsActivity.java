@@ -98,6 +98,7 @@ public class OtherAppCompatControlsActivity extends AppCompatActivity {
     @OnClick(R.id.btn_other_textview_none)
     public void removeTint() {
         ViewCompat.setBackgroundTintList(mTextView, null);
+        ViewCompat.setBackgroundTintList(mButton, null);
     }
 
     @OnClick(R.id.btn_other_textview_default_tint)
@@ -114,6 +115,9 @@ public class OtherAppCompatControlsActivity extends AppCompatActivity {
         removeTint();
         ViewCompat.setBackgroundTintList(mTextView, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimary)));
         ViewCompat.setBackgroundTintMode(mTextView, PorterDuff.Mode.LIGHTEN);
+
+        ViewCompat.setBackgroundTintList(mButton, ContextCompat.getColorStateList(this, R.color.text_colors));
+
     }
 
     @OnClick(R.id.btn_other_textview_darken)
@@ -121,6 +125,9 @@ public class OtherAppCompatControlsActivity extends AppCompatActivity {
         removeTint();
         ViewCompat.setBackgroundTintList(mTextView, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimary)));
         ViewCompat.setBackgroundTintMode(mTextView, PorterDuff.Mode.DARKEN);
+
+        ViewCompat.setBackgroundTintList(mButton, ContextCompat.getColorStateList(this, R.color.text_colors));
+
     }
 
     @OnClick(R.id.btn_other_textview_multiply)
@@ -128,5 +135,7 @@ public class OtherAppCompatControlsActivity extends AppCompatActivity {
         removeTint();
         ViewCompat.setBackgroundTintList(mTextView, ColorStateList.valueOf(ContextCompat.getColor(this, R.color.colorPrimary)));
         ViewCompat.setBackgroundTintMode(mTextView, PorterDuff.Mode.MULTIPLY);
+
+        ViewCompat.setBackgroundTintList(mButton, ContextCompat.getColorStateList(this, R.color.text_colors));
     }
 }
